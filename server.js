@@ -15,15 +15,14 @@ app.get('/', express.static('public'))
 
 
 // create shortened version of new url
-app.get('/:url(*)', function(req, res){
+app.get('/new/:url(*)', function(req, res){
   var params = req.params.url
-  console.log(params)
   mongoConnect(res, params, dbCallback, insertNewURL)
 })
 
 // redirect to full url
 app.get('/:short', function(req,res, next){
-  var params = req.params.url
+  var params = req.params.short
   mongoConnect(res, params, dbCallback, findURL)
 })
 
@@ -65,19 +64,9 @@ function dbCallback() {
   db.close()
 }
 
-//connect to MongoDB, redirect if successful
-// function mongoRedirect(res, params, dbCallback) { mongoClient.connect(mongoURL, function(err, db){
-//     if(err){
-//       console.log('error connecting to MongoDB')
-//     } else {
-//       console.log('MongoDB connection successful')
-//       var collection = db.collection('urlShortener')
-//       findURL(res, params, collection, db, dbCallback)
-//     }
-//   })
-// }
-
+//searches for existing url code in database
 function findURL(res, params, collection, db, callback){
+  console.log(params)
   collection.findOne({"short": params}, {url: 1, _id:0}, function(err, doc){
     if(doc != null){
       res.redirect(doc.url)
