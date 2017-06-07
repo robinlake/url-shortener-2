@@ -1,0 +1,9 @@
+h1 {
+    text-align: center;
+}
+p {
+    max-width: 60em;
+}
+body {
+    background-color: green;
+}

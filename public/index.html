@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>URL Shortener</title>
 </head>
 <body>
-    Hi this is some text
+    <h1>URL Shortener</h1>
+    <h2>How It Works</h2>
+    <p>Pass in a new URL to the address bar using the new path, and  a shortened URL will be returned <br>
+        Enter this shortened URL and it will redirect you to your original site </p>
+    <h2>Example Usage:</h2>
+    <p>https://url-shortener-me.herokuapp.com/new/https://www.google.com </p>
+    <h2>Example Output:</h2>
+    <p>{ "original_url":"http://foo.com:80", "short_url":"https://url-shortener-me.herokuapp.com/HJ9UXNAde" } </p>
+    <h2>In Other Words:</h2>
+    <h3>This Link:</h3>
+    <p>https://url-shortener-me.herokuapp.com/HJ9UXNAde</p>
+    <h3>Will Redirect To:</h3>
+    <p>https://www.google.com/</p>
 </body>
 </html>
